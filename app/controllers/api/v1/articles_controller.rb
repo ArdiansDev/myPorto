@@ -11,7 +11,7 @@ module Api
 
             end 
             def create 
-                articles = Article.new(posting_params)
+                articles = Article.new(articles_params)
 
                 if articles.save
                   render json: {status: 'SUCCESS', message:'Saved article', data:articles},status: :ok
@@ -21,7 +21,7 @@ module Api
             end 
             def update
                 articles = Article.find(params[:id]) 
-                if articles.update(posting_params)
+                if articles.update(articles_params)
                     render json: {status: 'SUCCESS', message:'Saved article', data:articles},status: :ok
                   else
                     render json: {status: 'ERROR', message:'Article not saved', data:articles.errors},status: :unprocessable_entity
@@ -33,7 +33,7 @@ module Api
                 render json: {status: 'SUCCESS', message:'Deleted article', data:articles},status: :ok
               end
             private
-            def posting_params
+            def articles_params
                 params.permit(:title, :body)
             end
         end

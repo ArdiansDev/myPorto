@@ -6,15 +6,15 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# 5.times do 
-#     Posting.create({
-#         title: Faker::Book.title,
-#         body: Faker::Lorem.sentences
-#     })
-# end
+5.times do 
+    Posting.create({
+        title: Faker::Military.air_force_rank,
+        body: Faker::Game.genre
+    })
+end
 5.times do 
     Article.create({
-        title: Faker::Book.title,
-        body: Faker::Lorem.sentences
+        title: Faker::Food.dish,
+        body: Faker::Food.description
     })
 end
