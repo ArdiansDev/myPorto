@@ -1,10 +1,11 @@
 require 'rails_helper'
 
-describe 'index', type: :request do
+RSpec.describe Article, type: :request do
+  describe 'index' do
     it 'returns ok' do
         get '/api/v1/articles'
-        expect(response_data).not_to be_empty
-        expect(response_data.size).to eq(2)
+        expect(response).to have_http_status(:ok)
+   
     end 
-    
+  end
 end
